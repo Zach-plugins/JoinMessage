@@ -1,0 +1,8 @@
+Join_enable: true
+Join_message: '&e<player> &6has joined the server'
+
+Leave_enable: true
+Leave_message: '&e<player> &6has leaved the server'
+
+Welcome_message_enable: true
+Welcome_message: '&6Welcome, &e<player> &6has joined server for the first time. Have a nice day'

@@ -1,0 +1,6 @@
+name: JoinMessage
+version: ${project.version}
+main: me.zachary.joinmessage.JoinMessage
+api-version: 1.16
+authors: [ Zach_FR ]
+description: Custom Join/Leave message
