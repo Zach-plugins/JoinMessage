@@ -1,3 +1,5 @@
+#Only in 1.16 you can use hex color like this "&#310340<player>has joined the server"
+
 Join_enable: true
 Join_message: '&e<player> &6has joined the server'
 
