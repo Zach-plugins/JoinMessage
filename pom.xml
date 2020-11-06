@@ -44,29 +44,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <relocations>
-                                <relocation>
-                                    <pattern>xyz.theprogramsrc.supercoreapi</pattern>
-                                    <shadedPattern>me.zachary.joinmessage.supercoreapi</shadedPattern>
-                                </relocation>
-                            </relocations>
-                            <finalName>${artifactId}_${version}</finalName>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
         <resources>
             <resource>
@@ -85,11 +62,6 @@
             <id>sonatype</id>
             <url>https://oss.sonatype.org/content/groups/public/</url>
         </repository>
-        <!-- SuperCoreAPI -->
-        <repository>
-            <id>TheProgramSrc</id>
-            <url>https://repo.theprogramsrc.xyz/repository/maven-public</url>
-        </repository>
     </repositories>
 
     <dependencies>
@@ -98,12 +70,6 @@
             <artifactId>spigot-api</artifactId>
             <version>1.16.3-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
-        </dependency>
-        <!-- SuperCoreAPI -->
-        <dependency>
-            <groupId>xyz.theprogramsrc</groupId>
-            <artifactId>SuperCoreAPI</artifactId>
-            <version>4.2.11</version>
         </dependency>
     </dependencies>
 </project>
