@@ -18,7 +18,7 @@ public class ReloadCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = (Player) sender;
 
-        if (player.hasPermission("Repair.use")) {
+        if (player.hasPermission("joinmessage.reload")) {
             plugin.saveDefaultConfig();
             plugin.reloadConfig();
             player.sendMessage("§4You have successful reload config!");
