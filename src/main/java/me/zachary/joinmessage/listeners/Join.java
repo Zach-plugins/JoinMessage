@@ -1,8 +1,8 @@
-package me.zachary.joinmessage.Listeners;
+package me.zachary.joinmessage.listeners;
 
 import me.zachary.joinmessage.JoinMessage;
-import me.zachary.joinmessage.Utils.ChatColorHex;
-import me.zachary.joinmessage.Utils.Utils;
+import me.zachary.joinmessage.utils.ChatColorHex;
+import me.zachary.joinmessage.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

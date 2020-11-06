@@ -1,4 +1,4 @@
-package me.zachary.joinmessage.Utils;
+package me.zachary.joinmessage.utils;
 
 import org.bukkit.ChatColor;
 
