@@ -1,11 +1,13 @@
 package me.zachary.joinmessage.utils;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Utils {
+    public static final String VERSION = Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3];
 
     public static String chat (String s) {
         return ChatColor.translateAlternateColorCodes('&', s);
@@ -31,11 +33,12 @@ public class Utils {
     }
 
     public static String color(String message){
-        if(xyz.theprogramsrc.supercoreapi.spigot.utils.ReflectionUtils.VERSION.contains("1_16")){
+        if(Utils.VERSION.contains("1_16")){
             message = Utils.parseHexColors(Utils.chat(message));
         }else{
             message = Utils.chat(message);
         }
+        Bukkit.getServer().getVersion();
         return message;
     }
 
