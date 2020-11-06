@@ -62,6 +62,7 @@
                                     <shadedPattern>me.zachary.joinmessage.supercoreapi</shadedPattern>
                                 </relocation>
                             </relocations>
+                            <finalName>${artifactId}_${version}</finalName>
                         </configuration>
                     </execution>
                 </executions>
