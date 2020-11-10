@@ -2,7 +2,7 @@ package me.zachary.joinmessage;
 
 import me.zachary.joinmessage.commands.ReloadCommand;
 import me.zachary.joinmessage.listeners.Join;
-import me.zachary.joinmessage.utils.Metrics;
+import me.zachary.zachcore.utils.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class JoinMessage extends JavaPlugin {
