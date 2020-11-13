@@ -1,4 +1,4 @@
-#Only in 1.16 you can use hex color like this "&#310340<player>has joined the server"
+#Only in 1.16+ you can use hex color like this "&#310340<player>has joined the server"
 
 Join_enable: true
 Join_message: '&e<player> &6has joined the server'
@@ -8,3 +8,17 @@ Leave_message: '&e<player> &6has leaved the server'
 
 Welcome_message_enable: true
 Welcome_message: '&6Welcome, &e<player> &6has joined server for the first time. Have a nice day'
+
+Send_Message_To_A_Player_On_First_Join: true
+Message_To_A_Player_On_First_Join:
+  - "&6----- Line 1 -----"
+  - "&eWelcome, &6<player> &eto best server."
+  - "&ePlease reads /rule"
+  - "&6-------------------"
+
+Send_Message_To_A_Player_On_Join: true
+Message_To_A_Player_On_Join:
+  - "&6----- Line 1 -----"
+  - "&eWelcome, &6<player> &eto best server."
+  - "&eThat's on normal join"
+  - "&6-------------------"

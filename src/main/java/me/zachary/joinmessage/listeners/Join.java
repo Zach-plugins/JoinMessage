@@ -44,6 +44,15 @@ public class Join implements Listener {
         } else {
             e.setJoinMessage("");
         }
+        if(plugin.getConfig().getBoolean("Send_Message_To_A_Player_On_First_Join") && !p.hasPlayedBefore()){
+            for(String message : plugin.getConfig().getStringList("Message_To_A_Player_On_First_Join")){
+                p.sendMessage(Utils.color(message).replace("<player>", p.getName()));
+            }
+        }else if(plugin.getConfig().getBoolean("Send_Message_To_A_Player_On_Join") && p.hasPlayedBefore()){
+            for(String message : plugin.getConfig().getStringList("Message_To_A_Player_On_Join")){
+                p.sendMessage(Utils.color(message).replace("<player>", p.getName()));
+            }
+        }
     }
 
     @EventHandler
