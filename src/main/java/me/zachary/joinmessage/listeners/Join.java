@@ -1,5 +1,6 @@
 package me.zachary.joinmessage.listeners;
 
+import me.clip.placeholderapi.PlaceholderAPI;
 import me.zachary.joinmessage.JoinMessage;
 import me.zachary.joinmessage.utils.Utils;
 import org.bukkit.Bukkit;
@@ -21,12 +22,18 @@ public class Join implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent e){
         Player p = e.getPlayer();
+        String JoinMessage = plugin.getConfig().getString("Join_message");
+        String WelcomeMessage = plugin.getConfig().getString("Welcome_message");
+        if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
+            WelcomeMessage = PlaceholderAPI.setPlaceholders(p, WelcomeMessage);
+            JoinMessage = PlaceholderAPI.setPlaceholders(p, JoinMessage);
+        }
         if (plugin.getConfig().getBoolean("Join_enable")){
             if (p.hasPlayedBefore()){
-                e.setJoinMessage(Utils.color(plugin.getConfig().getString("Join_message").replace("<player>", p.getName())));
+                e.setJoinMessage(Utils.color(JoinMessage).replace("<player>", p.getName()));
             }else {
                 if (plugin.getConfig().getBoolean("Welcome_message_enable")) {
-                    e.setJoinMessage(Utils.color(plugin.getConfig().getString("Welcome_message").replace("<player>", p.getName())));
+                    e.setJoinMessage(Utils.color(WelcomeMessage).replace("<player>", p.getName()));
                 } else {
                     e.setJoinMessage("");
                 }
@@ -34,7 +41,7 @@ public class Join implements Listener {
         } else if(!p.hasPlayedBefore()){
             if (plugin.getConfig().getBoolean("Welcome_message_enable")) {
                 if (!p.hasPlayedBefore()) {
-                    e.setJoinMessage(Utils.color(plugin.getConfig().getString("Welcome_message").replace("<player>", p.getName())));
+                    e.setJoinMessage(Utils.color(WelcomeMessage).replace("<player>", p.getName()));
                 }else{
                     e.setJoinMessage("");
                 }
@@ -46,10 +53,16 @@ public class Join implements Listener {
         }
         if(plugin.getConfig().getBoolean("Send_Message_To_A_Player_On_First_Join") && !p.hasPlayedBefore()){
             for(String message : plugin.getConfig().getStringList("Message_To_A_Player_On_First_Join")){
+                if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
+                    message = PlaceholderAPI.setPlaceholders(p, message);
+                }
                 p.sendMessage(Utils.color(message).replace("<player>", p.getName()));
             }
         }else if(plugin.getConfig().getBoolean("Send_Message_To_A_Player_On_Join") && p.hasPlayedBefore()){
             for(String message : plugin.getConfig().getStringList("Message_To_A_Player_On_Join")){
+                if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
+                    message = PlaceholderAPI.setPlaceholders(p, message);
+                }
                 p.sendMessage(Utils.color(message).replace("<player>", p.getName()));
             }
         }
@@ -58,11 +71,15 @@ public class Join implements Listener {
     @EventHandler
     public void onJoin(PlayerQuitEvent e){
         Player p = e.getPlayer();
+        String QuitMessage = plugin.getConfig().getString("Leave_message");
+        if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
+            QuitMessage = PlaceholderAPI.setPlaceholders(p, QuitMessage);
+        }
         if (plugin.getConfig().getBoolean("Leave_enable")){
             if (p.hasPlayedBefore()){
-                e.setQuitMessage(Utils.color(plugin.getConfig().getString("Leave_message").replace("<player>", p.getName())));
+                e.setQuitMessage(Utils.color(QuitMessage).replace("<player>", p.getName()));
             }else {
-                e.setQuitMessage(Utils.color(plugin.getConfig().getString("Leave_message").replace("<player>", p.getName())));
+                e.setQuitMessage(Utils.color(QuitMessage).replace("<player>", p.getName()));
             }
         }else {
             e.setQuitMessage("");

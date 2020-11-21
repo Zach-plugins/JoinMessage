@@ -4,6 +4,7 @@ main: me.zachary.joinmessage.JoinMessage
 api-version: 1.13
 authors: [ Zach_FR ]
 description: Custom Join/Leave message
+softdepend: [PlaceholderAPI]
 
 commands:
   joinmessagereload:
