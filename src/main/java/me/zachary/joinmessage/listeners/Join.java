@@ -9,6 +9,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.permissions.Permission;
+import org.bukkit.permissions.PermissionDefault;
 
 public class Join implements Listener {
 
@@ -22,6 +24,10 @@ public class Join implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent e){
         Player p = e.getPlayer();
+        if(hasPermission(p, "joinmessage.join.disable")){
+            e.setJoinMessage("");
+            return;
+        }
         String JoinMessage = plugin.getConfig().getString("Join_message");
         String WelcomeMessage = plugin.getConfig().getString("Welcome_message");
         if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
@@ -71,6 +77,10 @@ public class Join implements Listener {
     @EventHandler
     public void onJoin(PlayerQuitEvent e){
         Player p = e.getPlayer();
+        if(hasPermission(p, "joinmessage.quit.disable")){
+            e.setQuitMessage("");
+            return;
+        }
         String QuitMessage = plugin.getConfig().getString("Leave_message");
         if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
             QuitMessage = PlaceholderAPI.setPlaceholders(p, QuitMessage);
@@ -84,6 +94,12 @@ public class Join implements Listener {
         }else {
             e.setQuitMessage("");
         }
+    }
+
+    boolean hasPermission(Player player, String permission)
+    {
+        Permission p = new Permission(permission, PermissionDefault.FALSE);
+        return player.hasPermission(p);
     }
 }
 
