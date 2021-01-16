@@ -6,7 +6,7 @@
 
     <groupId>me.zachary</groupId>
     <artifactId>joinmessage</artifactId>
-    <version>1.6.8</version>
+    <version>1.6.9</version>
     <packaging>jar</packaging>
 
     <name>JoinMessage</name>
