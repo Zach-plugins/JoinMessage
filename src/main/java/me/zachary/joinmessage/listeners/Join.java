@@ -24,6 +24,13 @@ public class Join implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent e){
         Player p = e.getPlayer();
+        Player[] players = new Player[Bukkit.getServer().getOnlinePlayers().size()];
+        Bukkit.getServer().getOnlinePlayers().toArray(players);
+        for (Player player : players) {
+            if(player.hasPermission("joinmessage.staff.join") && plugin.getConfig().getBoolean("Staff_join_message_enable") && p.hasPermission("joinmessage.staff.join")){
+                player.sendMessage(Utils.color(plugin.getConfig().getString("Staff_join_message")).replace("<player>", p.getName()));
+            }
+        }
         if(hasPermission(p, "joinmessage.join.disable")){
             e.setJoinMessage("");
             return;
@@ -72,18 +79,18 @@ public class Join implements Listener {
                 p.sendMessage(Utils.color(message).replace("<player>", p.getName()));
             }
         }
-        Player[] players = new Player[Bukkit.getServer().getOnlinePlayers().size()];
-        Bukkit.getServer().getOnlinePlayers().toArray(players);
-        for (Player player : players) {
-            if(player.hasPermission("joinmessage.staff.join") && plugin.getConfig().getBoolean("Staff_join_message_enable") && p.hasPermission("joinmessage.staff.join")){
-                player.sendMessage(Utils.color(plugin.getConfig().getString("Staff_join_message")).replace("<player>", p.getName()));
-            }
-        }
     }
 
     @EventHandler
     public void onJoin(PlayerQuitEvent e){
         Player p = e.getPlayer();
+        Player[] players = new Player[Bukkit.getServer().getOnlinePlayers().size()];
+        Bukkit.getServer().getOnlinePlayers().toArray(players);
+        for (Player player : players) {
+            if(player.hasPermission("joinmessage.staff.quit") && plugin.getConfig().getBoolean("Staff_leave_message_enable") && p.hasPermission("joinmessage.staff.quit")){
+                player.sendMessage(Utils.color(plugin.getConfig().getString("Staff_leave_message")).replace("<player>", p.getName()));
+            }
+        }
         if(hasPermission(p, "joinmessage.quit.disable")){
             e.setQuitMessage("");
             return;
@@ -100,13 +107,6 @@ public class Join implements Listener {
             }
         }else {
             e.setQuitMessage("");
-        }
-        Player[] players = new Player[Bukkit.getServer().getOnlinePlayers().size()];
-        Bukkit.getServer().getOnlinePlayers().toArray(players);
-        for (Player player : players) {
-            if(player.hasPermission("joinmessage.staff.quit") && plugin.getConfig().getBoolean("Staff_leave_message_enable") && p.hasPermission("joinmessage.staff.quit")){
-                player.sendMessage(Utils.color(plugin.getConfig().getString("Staff_leave_message")).replace("<player>", p.getName()));
-            }
         }
     }
 
