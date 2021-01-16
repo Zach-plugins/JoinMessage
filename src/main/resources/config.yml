@@ -9,6 +9,12 @@ Leave_message: '&e<player> &6has leaved the server'
 Welcome_message_enable: true
 Welcome_message: '&6Welcome, &e<player> &6has joined server for the first time. Have a nice day'
 
+Staff_join_message_enable: true
+Staff_join_message: '&8Staff: &7[&a+&7] &e<player>'
+
+Staff_leave_message_enable: true
+Staff_leave_message: '&8Staff: &7[&c-&7] &e<player>'
+
 Send_Message_To_A_Player_On_First_Join: true
 Message_To_A_Player_On_First_Join:
   - "&6----- Line 1 -----"
