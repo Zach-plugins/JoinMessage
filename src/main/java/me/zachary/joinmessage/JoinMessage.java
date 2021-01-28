@@ -19,7 +19,7 @@ public final class JoinMessage extends ZachCorePlugin {
         int pluginId = 7870; // <-- Replace with the id of your plugin!
         Metrics metrics = new Metrics(this, pluginId);
 
-        preEnable();
+        preEnable(this);
     }
 }
 
