@@ -48,7 +48,7 @@ public class Join implements Listener {
                 if (plugin.getConfig().getBoolean("Welcome_message_enable")) {
                     e.setJoinMessage(Utils.color(WelcomeMessage).replace("<player>", p.getName()));
                 } else {
-                    e.setJoinMessage("");
+                    e.setJoinMessage(Utils.color(JoinMessage).replace("<player>", p.getName()));
                 }
             }
         } else if(!p.hasPlayedBefore()){
