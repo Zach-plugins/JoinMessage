@@ -6,7 +6,7 @@
 
     <groupId>me.zachary</groupId>
     <artifactId>joinmessage</artifactId>
-    <version>1.7.0</version>
+    <version>1.7.1</version>
     <packaging>jar</packaging>
 
     <name>JoinMessage</name>
@@ -53,7 +53,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.2.4</version>
                 <executions>
                     <execution>
                         <id>shaded</id>
@@ -123,7 +123,7 @@
         <dependency>
             <groupId>me.zachary</groupId>
             <artifactId>ZachCore</artifactId>
-            <version>0.7.18</version>
+            <version>0.7.23</version>
         </dependency>
         <dependency>
             <groupId>me.clip</groupId>

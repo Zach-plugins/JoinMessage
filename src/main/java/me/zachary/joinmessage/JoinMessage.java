@@ -11,7 +11,7 @@ public final class JoinMessage extends ZachCorePlugin {
     @Override
     public void onEnable() {
         saveDefaultConfig();
-        Updatechecker.updateSongoda(this, 378);
+        Updatechecker.update(this, "joinmessage");
 
         new Join(this);
         new ReloadCommand(this);
@@ -21,5 +21,8 @@ public final class JoinMessage extends ZachCorePlugin {
 
         preEnable(this);
     }
+
+    @Override
+    public void onDataLoad() {}
 }
 
